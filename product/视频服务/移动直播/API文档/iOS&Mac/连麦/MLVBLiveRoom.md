@@ -5,7 +5,7 @@ __功能__
 
 __介绍__
 
-基于腾讯云直播（LVB）、点播（VOD） 和云通信（IM）三大 PAAS 服务组合而成，支持：
+基于腾讯云直播（LVB）、点播（VOD） 和即时通信（IM）三大 PAAS 服务组合而成，支持：
 
 - 主播创建新的直播间开播，观众进入直播间观看。
 - 主播和观众进行视频连麦互动。
@@ -236,7 +236,7 @@ __参数__
 __介绍__
 
 有时候您需要为当前房间设置一些扩展字段，如“点赞人数”和“是否正在连麦”等，这些字段我们很难全都预先定义好，所以提供了如下三种操作接口：
-- SET：设置，value 可以是数值或者字符串，比如“是否正在连麦”等。
+- SET：设置，value 可以是数值或者字符串，例如“是否正在连麦”等。
 - INC：增加，value 只能是整数，如“点赞人数”，“人气指数”等，都可以使用该操作接口。
 - DEC：减少，value 只能是整数，如“点赞人数”，“人气指数”等，都可以使用该操作接口。
 
@@ -280,7 +280,7 @@ __介绍__
 主播和观众的连麦流程可以简单描述为如下几个步骤：
 1. 观众调用 requestJoinAnchor 向主播发起连麦请求。
 2. 主播会收到 MLVBLiveRoomDelegate onRequestJoinAnchor 的回调通知。
-3. 主播调用 reponseJoinAnchor 确定是否接受观众的连麦请求。
+3. 主播调用 responseJoinAnchor 确定是否接受观众的连麦请求。
 4. 观众会收到 requestJoinAnchor 传入的回调通知，可以得知请求是否被同意。
 5. 观众如果请求被同意，则调用 startLocalPreview 开启本地摄像头，如果 App 还没有取得摄像头和麦克风权限，会触发 UI 提示。
 6. 观众然后调用 joinAnchor 正式进入连麦状态。
@@ -662,7 +662,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| beautyStyle | TX_Enum_Type_BeautyStyle | 美颜风格，三种美颜风格：0 ：光滑；1：自然；2：【天天P图】版美颜（商用企业版有效，普通版本设置此选项无效）。 |
+| beautyStyle | TX_Enum_Type_BeautyStyle | 美颜风格，三种美颜风格：0 ：光滑；1：自然；2：【天天P图】版美颜（商业版有效，普通版本设置此选项无效）。 |
 | beautyLevel | float | 美颜级别，取值范围：0 - 9； 0表示关闭， 1 - 9值越大，效果越明显。 |
 | whitenessLevel | float | 美白级别，取值范围：0 - 9； 0表示关闭， 1 - 9值越大，效果越明显。 |
 | ruddinessLevel | float | 红润级别，取值范围：0 - 9； 0表示关闭， 1 - 9值越大，效果越明显。 |
@@ -704,7 +704,7 @@ __参数__
 
 ### setEyeScaleLevel
 
-设置大眼级别（商用企业版有效，普通版本设置此参数无效）。
+设置大眼级别（商业版有效，普通版本设置此参数无效）。
 ```
 - (void)setEyeScaleLevel:(float)eyeScaleLevel 
 ```
@@ -719,7 +719,7 @@ __参数__
 
 ### setFaceScaleLevel
 
-设置瘦脸级别（商用企业版有效，普通版本设置此参数无效）。
+设置瘦脸级别（商业版有效，普通版本设置此参数无效）。
 ```
 - (void)setFaceScaleLevel:(float)faceScaleLevel 
 ```
@@ -734,7 +734,7 @@ __参数__
 
 ### setFaceVLevel
 
-设置 V 脸级别（商用企业版有效，其它版本设置此参数无效）。
+设置 V 脸级别（商业版有效，其它版本设置此参数无效）。
 ```
 - (void)setFaceVLevel:(float)faceVLevel 
 ```
@@ -749,7 +749,7 @@ __参数__
 
 ### setChinLevel
 
-设置下巴拉伸或收缩（商用企业版有效，其它版本设置此参数无效）。
+设置下巴拉伸或收缩（商业版有效，其它版本设置此参数无效）。
 ```
 - (void)setChinLevel:(float)chinLevel 
 ```
@@ -764,7 +764,7 @@ __参数__
 
 ### setFaceShortLevel
 
-设置短脸级别（商用企业版有效，其它版本设置此参数无效）。
+设置短脸级别（商业版有效，其它版本设置此参数无效）。
 ```
 - (void)setFaceShortLevel:(float)faceShortlevel 
 ```
@@ -779,7 +779,7 @@ __参数__
 
 ### setNoseSlimLevel
 
-设置瘦鼻级别（商用企业版有效，其它版本设置此参数无效）。
+设置瘦鼻级别（商业版有效，其它版本设置此参数无效）。
 ```
 - (void)setNoseSlimLevel:(float)noseSlimLevel 
 ```
@@ -794,7 +794,7 @@ __参数__
 
 ### setGreenScreenFile
 
-设置绿幕背景视频（商用企业版有效，其它版本设置此参数无效）。
+设置绿幕背景视频（商业版有效，其它版本设置此参数无效）。
 ```
 - (void)setGreenScreenFile:(NSURL *)file 
 ```
@@ -803,7 +803,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| file | NSURL * | 视频文件路径。支持 MP4; nil 表示关闭特效。 |
+| file | NSURL * | 视频文件路径。支持 MP4；nil 表示关闭特效。 |
 
 >?此处的绿幕功能并非智能抠背，它需要被拍摄者的背后有一块绿色的幕布来辅助产生特效。
 
@@ -812,7 +812,7 @@ __参数__
 
 ### selectMotionTmpl
 
-选择使用哪一款 AI 动效挂件（商用企业版有效，其它版本设置此参数无效）。
+选择使用哪一款 AI 动效挂件（商业版有效，其它版本设置此参数无效）。
 ```
 - (void)selectMotionTmpl:(NSString *)tmplName inDir:(NSString *)tmplDir 
 ```
